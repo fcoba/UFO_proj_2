@@ -7,9 +7,10 @@ Dataset: http://www.nuforc.org/index.html
 Hypothesis questions:
 * How do the ufo shapes compare between 1960s vs 2000s? Does a certain shape last longer in 1960s vs now? 
 * How different are the durations between shapes?
-* What are the two top states with the most sightings? How do they compare? 
+* How does CA vs DC metro area differ in terms of number of sightings?
 * What is the difference between the population and number of sightings? 
-* Is there a difference between the number of sightings in different areas? 
+* Is there a difference between the number of sightings per population for a specific region for specific year/decade? 
+* How do the different shapes vary in duration between states? 
 
 Steps:
 1. Web scraping the site to get all data. (done)
