@@ -5,9 +5,9 @@ UFO Predictions
 Dataset: http://www.nuforc.org/index.html 
 
 Hypothesis questions:
-* How different have UFO shapes been over time? 
+* How do the ufo shapes compare between 1960s vs 2000s? Does a certain shape last longer in 1960s vs now? 
 * How different are the durations between shapes?
-* How different are the durations between states?
+* What are the two top states with the most sightings? How do they compare? 
 * What is the difference between the population and number of sightings? 
 * Is there a difference between the number of sightings in different areas? 
 
