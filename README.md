@@ -12,9 +12,9 @@ Hypothesis questions:
 * Is there a difference between the number of sightings in different areas? 
 
 Steps:
-a. Web scraping the site to get all data. (done)
-b. Clean data and visualize the data. (done?)
-c. Create database and save as ufo.bd file in python. (Wednesday)
-d. Perform predictions such as t-test. (Wednesday)
-e. Create Powerpoint (Thursday)
-f. Project Due (Friday)
+1. Web scraping the site to get all data. (done)
+2. Clean data and visualize the data. (done?)
+3. Create database and save as ufo.bd file in python. (Wednesday)
+4. Perform predictions such as t-test. (Wednesday)
+5. Create Powerpoint (Thursday)
+6. Project Due (Friday)
