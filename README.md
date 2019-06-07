@@ -26,6 +26,13 @@ The census data we used contains the total population for each of the 50 US stat
 To use the census data we groupd out UFO data by state and by year and counted how many sightings happened between 2010 and 2018. 
 
 #### Collecting an cleaning the data.
-For the ufo data, we scrapped the data from the website and used the
+For the ufo data, we scrapped the data from the website. For this analysis we scrapped the pages summarizing the sightings per month [like this one](http://www.nuforc.org/webreports/ndxe201905.html) instead of scrapping each individual report, as shown [here](http://www.nuforc.org/webreports/146/S146041.html). The downside of scrapping the summary table,  is that we do not have the full description of the event, so will not use this informatin for this analysis.
+
+The data needs some cleaning before we can start analyzing it. In the input forms, the field `Duration` is collected as a string, resulting in a variety of formats. The most common are the duration time as seconds, minutes or hours (for example `5 minutes` or `2:30` or `1 hour & 30 minutes`), a time interval (like `10-15 minutes`) or give a limit (`>1 minute`). In addition to dealing with the different formats, we had to take into account the most common typos, such as writing `2O` instead of `20`.
+
+After converting the duration time into seconds and removing the rows with a null value, or where we could not find a number, 
+50% of our time in this project was dedicated on cleaning, we eneded with ~87,700 reports out of the original ~110,000.
+
+The census data, 
 
 
