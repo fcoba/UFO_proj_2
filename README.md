@@ -3,7 +3,7 @@
 
 ## Data science Module 3: Project
 
-Ever wonder where to go for UFO sigthsing? Look no more!, in this document we'll analyze the data from +100 thousand of reports collected over the past 50 years and tell you where you should go, and what you can expect to see.
+Ever wonder where to go for UFO sigthsing? Look no more! in this document we'll analyze the data from +100 thousand of reports collected over the past 50 years and tell you where you should go, and what you can expect to see.
 
 ### Data
 For this project we collected the data from the [National UFO Reporting Center](http://www.nuforc.org/index.html)
@@ -33,6 +33,42 @@ The data needs some cleaning before we can start analyzing it. In the input form
 After converting the duration time into seconds and removing the rows with a null value, or where we could not find a number, 
 50% of our time in this project was dedicated on cleaning, we eneded with ~87,700 reports out of the original ~110,000.
 
-The census data, 
+The census data we selected showed the total population by state and by year from 2010 to 2018. There was no need to clean this data.
+
+### Preliminary EDA
+
+After looking at the data, ur first question was, where should we go to see some ufos? To answer this, we counted the total number of sightings per state, finding that California has the highest number
+![UFO_sightsBYState](Figures/ufos_by_state.png)
+
+This way of looking at the data doesn't give us a lot of information when compared to other states because the population of California is much larger than smaller states, such as Rhode Island. To do a true comparison we loaded up the census data to get the number of sightings per capita. This analysis is reported in the next section. 
+
+From the `Shapes` column we found there are +40 shapes reported, the top three being 
+
+| Top Shapes (out of 43)       |  % |
+| ------------- |:------------:| 
+| Light   | 21.2 |
+| Circle          | 10.6 |
+| Triangle      | 9.9 |
 
 
+
+### Data Analysis
+To answer, which state has the higher activity per capita, we imported the data from both databases into a single SQL database, using `sqlite3`. We used the different SQL commands to group and sum the information we needed, 
+for example to count all the sighting by state and by year we did
+
+```sql
+SELECT state , 
+ sum(CAST ("y2010" AS int)) as N2010, 
+ sum(CAST ("y2011" AS int)) as N2011, 
+ FROM 
+ 	(SELECT state , 
+ 	 COUNT( CASE WHEN strftime('%Y', event_date) = '2010' THEN shape END) AS 'y2010', 
+ 	 COUNT( CASE WHEN strftime('%Y', event_date) = '2011' THEN shape END) AS 'y2011', 
+ 	 strftime('%Y', event_date) as year FROM ufos 
+ 	 GROUP BY strftime('%Y',event_date), state)
+ GROUP BY state
+ ```
+ The result was then loaded into a pandas DataFrame, and then joined to a second dataframe containing tthe population number.  
+ To calculate the number of sights per capita, we simplly divide the number of sights for a particular state and year by the population for that same state and year. 
+ 
+ To compare if any state had a an unusual number of sights, we compare the sights per capita to the average number of sights for the whole country, and then perform a $\chi^2$ test defined as 
