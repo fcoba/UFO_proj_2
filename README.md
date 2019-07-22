@@ -20,7 +20,7 @@ For each report the data contains the folling information
 | Summary       | Descrption of the event |
 | Posted        | Date when the event was posted to the database |
 
-In order to compare the nuber of UFO sightings between the different states, we also collected the population from the [United States Census Bureau](https://www.census.gov/). 
+In order to compare the number of UFO sightings between the different states, we also collected the population from the [United States Census Bureau](https://www.census.gov/). 
 
 The census data we used contains the total population for each of the 50 US states per year, from 2010 to 2018. 
 To use the census data we groupd out UFO data by state and by year and counted how many sightings happened between 2010 and 2018. 
